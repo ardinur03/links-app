@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $getAll = \App\Models\User::withCount('links')->findOrFail(12);
+    return view('welcome', [
+        'users' => $getAll,
+    ]);
 });
