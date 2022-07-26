@@ -8,11 +8,16 @@
     <title>{{ $title ?? 'Links App' }}</title>
 
     @livewireStyles
+
+    @vite(['resources/js/app.js'])
 </head>
 
 <body>
 
+    {{ $slot }}
+
     @livewireScripts
+
 </body>
 
 </html>
