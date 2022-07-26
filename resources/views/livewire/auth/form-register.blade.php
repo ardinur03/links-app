@@ -73,8 +73,9 @@
             @enderror
         </div>
 
-        <div class="mt-5">
-            <button type="submit" class="btn btn-primary">Login</button>
+        <div class="mt-3 d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+            <a href="{{ route('login') }}">Already registred?</a>
         </div>
 
     </form>

@@ -20,3 +20,5 @@ Route::get('/', function () {
         'users' => $getAll,
     ]);
 });
+
+Route::get('/dashboard', fn () => 'dashboard');
