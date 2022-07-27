@@ -17,26 +17,36 @@ use Spatie\Permission\Models\Role;
 
 Route::get('/', function () {
 
-    $getAll = \App\Models\User::withCount('links')->findOrFail(12);
-    return view('welcome', [
-        'users' => $getAll,
-    ]);
+    echo 'Hello Everyone 👋';
 });
 
-Route::middleware('role:user')->get('/dashboard', function () {
-    // $user = Auth::user();
-    // $user->givePermissionTo('edit link', 'hapus link');  => memberi permission ke user
-    // dd($user->hasPermissionTo('hapus link')); // => cek permission user boolean
+// Route::get('/give-role', function () {
+//     $user = Auth::user();
+//     $role = Role::find(2);
+//     $user->givePermissionTo('add link'); # => memberi permission ke user
 
-    // $role = Role::findOrFail(1);
-    // dd($user->can('add link'));
-    // $role->givePermissionTo('add link', 'edit link', 'hapus link');
+// });
 
-    echo '<h1>Dashboard</h1>';
+Route::middleware(['role:user'])->group(function () {
+    Route::get('/dashboard', function () {
+        echo '<h1>Dashboard</h1>';
+    });
+
+    Route::get('/user/profile', function () {
+        // Uses first & second middleware...
+    });
 });
 
-Route::group(['middleware' => ['role:user', '']], function () {
-    //
-});
+// Route::group(['middleware' => ['role:user', '']], function () {
+//     //
+// });
+
+// $user = Auth::user();
+//     // $user->givePermissionTo('edit link', 'hapus link');  => memberi permission ke user
+//     // dd($user->hasPermissionTo('hapus link')); // => cek permission user boolean
+//     dd($user->hasPermissionTo('add link'));
+//     // $role = Role::findOrFail(1);
+//     // dd($user->can('add link'));
+//     // $role->givePermissionTo('add link', 'edit link', 'hapus link');
 
 Route::middleware('role:admin')->get('/admin/dashboard', fn () => 'ADMIN DASHBOARD');
