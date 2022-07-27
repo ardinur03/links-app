@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Role;
@@ -49,4 +50,6 @@ Route::middleware(['role:user'])->group(function () {
 //     // dd($user->can('add link'));
 //     // $role->givePermissionTo('add link', 'edit link', 'hapus link');
 
-Route::middleware('role:admin')->get('/admin/dashboard', fn () => 'ADMIN DASHBOARD');
+Route::prefix('admin')->middleware(['role:admin'])->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'index']);
+});
