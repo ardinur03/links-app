@@ -1,7 +1,7 @@
 <x-auth-layout>
     <div class="container">
-        <div class="row justify-content-center mt-4">
-            <div class="col-6">
+        <div class="row  vh-100 justify-content-center">
+            <div class="col-5 align-self-center">
                 <div class="card shadow">
                     <div class="card-body">
                         <h5 class="card-title text-center mb-3">Register
