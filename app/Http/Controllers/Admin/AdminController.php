@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
@@ -14,7 +15,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $data = [
+            'title' => 'Dashboard',
+            'users_count' => User::count(),
+        ];
+        return view('admin.index', $data);
     }
 
     /**
