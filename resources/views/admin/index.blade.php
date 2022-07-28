@@ -7,17 +7,15 @@
 
         <div class="col-12 col-md-6 col-lg-4">
             <div class="statistics-card">
-
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="d-flex flex-column justify-content-between align-items-start">
                         <h5 class="content-desc">Users</h5>
 
-                        <h3 class="statistics-value">18,500,000</h3>
+                        <h3 class="statistics-value">{{ $users_count }}</h3>
                     </div>
-
-                    <button class="btn-statistics">
+                    <a href="{{ route('users.index') }}" class="btn-statistics">
                         <img src="{{ asset('assets/images/icon/times.svg') }}" alt="">
-                    </button>
+                    </a>
                 </div>
 
                 <div class="statistics-list">
