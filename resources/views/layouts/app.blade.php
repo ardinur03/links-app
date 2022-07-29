@@ -149,6 +149,8 @@
 
     @livewireScripts
 
+    @stack('scripts')
+
     <script>
         const navbar = document.querySelector('.col-navbar')
         const cover = document.querySelector('.screen-cover')
