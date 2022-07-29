@@ -1,5 +1,6 @@
 <div>
-    <form class="row g-1 needs-validation" action="{{ route('register') }}" method="POST" novalidate>
+    <form class="row g-1 needs-validation" action="{{ !$isCrud ? route('register') : route('users.store') }}"
+        method="POST" novalidate>
         @csrf
         <div class="mb-3 position-relative">
             <label for="iput-fullname" class="form-label">Full Name</label>
@@ -42,41 +43,45 @@
                     Email is required
                 </div>
             @enderror
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <div class="mb-3 position-relative">
-            <label for="input-password" class="form-label">Password</label>
-            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
-                id="input-password" required>
-            @error('password')
-                <div class="invalid-tooltip">
-                    {{ $message }}
-                </div>
-            @else
-                <div class="invalid-feedback">
-                    Password is required
-                </div>
-            @enderror
-        </div>
-        <div class="mb-3 position-relative">
-            <label for="confirmpassword" class="form-label">Confirm Password</label>
-            <input type="password" name="password_confirmation"
-                class="form-control @error('password') is-invalid @enderror" id="confirmpassword" required>
-            @error('password_confirmation')
-                <div class="invalid-tooltip">
-                    {{ $message }}
-                </div>
-            @else
-                <div class="invalid-feedback">
-                    Password Confirmation is required
-                </div>
-            @enderror
-        </div>
+            @if (!$isCrud)
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            @endcan
+    </div>
+    <div class="mb-3 position-relative">
+        <label for="input-password" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
+            id="input-password" required>
+        @error('password')
+            <div class="invalid-tooltip">
+                {{ $message }}
+            </div>
+        @else
+            <div class="invalid-feedback">
+                Password is required
+            </div>
+        @enderror
+    </div>
+    <div class="mb-3 position-relative">
+        <label for="confirmpassword" class="form-label">Confirm Password</label>
+        <input type="password" name="password_confirmation"
+            class="form-control @error('password') is-invalid @enderror" id="confirmpassword" required>
+        @error('password_confirmation')
+            <div class="invalid-tooltip">
+                {{ $message }}
+            </div>
+        @else
+            <div class="invalid-feedback">
+                Password Confirmation is required
+            </div>
+        @enderror
+    </div>
 
-        <div class="mt-3 d-flex justify-content-between">
-            <button type="submit" class="btn btn-primary">Sign Up</button>
+    <div class="mt-3 d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+        @if (!$isCrud)
             <a href="{{ route('login') }}">Already registred?</a>
-        </div>
+        @endif
+    </div>
 
-    </form>
+</form>
 </div>
