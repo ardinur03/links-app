@@ -15,24 +15,23 @@
                         <th scope="col">Name</th>
                         <th scope="col">Username</th>
                         <th scope="col">account created</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    @php
-                        $no = 1;
-                    @endphp
                     @forelse ($users as $user)
                         <tr>
-                            <th scope="row">{{ $no++ }}</th>
+                            <th scope="row">{{ $loop->iteration }}</th>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->username }}</td>
-                            <td>{{ $user->created_at }}</td>
-                            <td>
-                                <div class="btn-group">
-                                    <a href="" class="btn btn-sm btn-primary">Edit</a>
-                                    <a href="" class="btn btn-sm btn-secondary">Show</a>
-                                    <a href="" class="btn btn-sm btn-danger">Delete</a>
+                            <td>{{ date('d M Y', strtotime($user->created_at)) }}</td>
+                            <td class="text-center">
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <a href="{{ route('users.create') }}" class="btn btn-sm btn-success"><i
+                                            class="bi bi-plus-lg"></i></a>
+                                    <a href="" class="btn btn-sm btn-secondary"><i class="bi bi-eye"></i></a>
+                                    <a href="" class="btn btn-sm btn-info"><i class="bi bi-pencil-fill"></i></a>
+                                    <a href="" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
