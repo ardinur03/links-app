@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('links', function (Blueprint $table) {
+        Schema::create('link_user', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->text("title");
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('links');
+        Schema::dropIfExists('link_user');
     }
 };
