@@ -1,10 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\UserController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\{AdminController, UserController, LinkUserController};
 use Illuminate\Support\Facades\Route;
-use Spatie\Permission\Models\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,4 +51,5 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index']);
     Route::resource('users', UserController::class);
+    Route::resource('link-user', LinkUserController::class);
 });
