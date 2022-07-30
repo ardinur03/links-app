@@ -68,7 +68,8 @@
                         <span>Users</span>
                     </a>
 
-                    <a href="#" class="sidebar-item">
+                    <a href="{{ route('link-user.index') }}"
+                        class="sidebar-item  {{ request()->is(['/admin/link-user', '/admin/link-user/*']) ? 'active' : '' }}">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -132,13 +133,13 @@
                         <button class="btn-notif d-block d-md-none"><img
                                 src="{{ asset('assets/images/icon/bell.svg') }}" alt=""></button>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center nav-input-container">
+                    {{-- <div class="d-flex justify-content-between align-items-center nav-input-container">
                         <div class="nav-input-group">
                             <input type="text" class="nav-input" placeholder="Search people, team, project">
                             <button class="btn-nav-input"><img src="{{ asset('assets/images/icon/search.svg') }}"
                                     alt=""></button>
                         </div>
-                    </div>
+                    </div> --}}
                 </nav>
                 <div class="content">
                     {{ $slot }}
