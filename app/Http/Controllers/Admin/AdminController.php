@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\LinkUser;
 
 class AdminController extends Controller
 {
@@ -18,6 +19,7 @@ class AdminController extends Controller
         $data = [
             'title' => 'Dashboard',
             'users_count' => User::count(),
+            'links' => LinkUser::with('user')->count(),
         ];
         return view('admin.index', $data);
     }
