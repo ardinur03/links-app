@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="User Create">
     <div class="row">
         <div class="col-12">
             <h2 class="content-title">User</h2>
