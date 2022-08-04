@@ -51,7 +51,10 @@ class LinkUserController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.links-user.show', [
+            'title' => 'Link User',
+            'linkUser' => LinkUser::with('user')->findOrFail($id),
+        ]);
     }
 
     /**

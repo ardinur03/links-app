@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="Links User">
     <div class="row">
         <div class="col-12">
             <h2 class="content-title">Link User</h2>
@@ -34,7 +34,8 @@
                             <td>{{ date('d M Y', strtotime($linkUser->created_at)) }}</td>
                             <td class="text-center">
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <a href="" class="btn btn-sm btn-secondary"><i class="bi bi-eye"></i></a>
+                                    <a href="{{ route('link-user.show', $linkUser->id) }}"
+                                        class="btn btn-sm btn-secondary"><i class="bi bi-eye"></i></a>
                                     <a href="" class="btn btn-sm btn-info"><i class="bi bi-pencil-fill"></i></a>
                                     <a href="" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
                                 </div>
@@ -47,7 +48,6 @@
                     @endforelse
                 </tbody>
             </table>
-            {{-- {{ $users->links_count }} --}}
         </div>
     </div>
 </x-app-layout>

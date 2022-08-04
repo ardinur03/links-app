@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\User;
 
+use App\Models\LinkUser;
 use Livewire\Component;
 
 class ShowUser extends Component
