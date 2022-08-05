@@ -8,15 +8,17 @@ class AppLayout extends Component
 {
 
     public $title;
+    public $isUser;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title = 'Link App')
+    public function __construct($title = 'Link App', $isUser = false)
     {
         $this->title = $title;
+        $this->isUser = $isUser;
     }
 
     /**
