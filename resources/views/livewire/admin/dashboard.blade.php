@@ -9,7 +9,7 @@
             <div class="statistics-card">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="d-flex flex-column justify-content-between align-items-start">
-                        <h5 class="content-desc">Users</h5>
+                        <h5 class="content-desc">All Users</h5>
 
                         <h3 class="statistics-value">{{ $users_count }}</h3>
                     </div>
@@ -36,14 +36,15 @@
 
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="d-flex flex-column justify-content-between align-items-start">
-                        <h5 class="content-desc">Teams</h5>
+                        <h5 class="content-desc">Users Register Today</h5>
 
-                        <h3 class="statistics-value">122,000</h3>
+                        <h3 class="statistics-value">{{ $users_count_today }}</h3>
                     </div>
 
-                    <button class="btn-statistics">
-                        <img src="{{ asset('assets/images/icon/times.svg') }}" alt="">
-                    </button>
+                    <a href="{{ isset($get_user_id_today) ? route('users.show', $get_user_id_today) : '#' }}"
+                        class="btn-statistics">
+                        <i class="bi bi-search"></i>
+                    </a>
                 </div>
 
                 <div class="statistics-list">
@@ -156,54 +157,29 @@
         </div>
 
         <div class="col-12 col-lg-6">
-            <h2 class="content-title">History</h2>
-            <h5 class="content-desc mb-4">Track the flow</h5>
+            <h2 class="content-title">Recent actions</h2>
+            <h5 class="content-desc mb-4">Recent actions in Users</h5>
             <div class="document-card">
-                <div class="document-item">
-                    <div class="d-flex justify-content-start align-items-center">
-                        {{-- <img class="document-icon" src="./assets/img/home/history/photo.png" alt=""> --}}
-                        <div class="d-flex flex-column justify-content-between align-items-start">
-                            <h2 class="document-title">Amalia Syahrina</h2>
-                            <span class="document-desc">Promoted to Sr. Website Designer</span>
+                @forelse ($users as $user)
+                    <div class="document-item">
+                        <div class="d-flex justify-content-start align-items-center">
+                            {{-- <img class="document-icon" src="./assets/img/home/history/photo.png" alt=""> --}}
+                            <div class="d-flex flex-column justify-content-between align-items-start">
+                                <h2 class="document-title">{{ $user->username }}</h2>
+                                <span class="document-desc">{{ $user->name }}</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="document-item">
-                    <div class="d-flex justify-content-start align-items-center">
-                        {{-- <img class="document-icon" src="./assets/img/home/history/photo-1.png" alt=""> --}}
-
-                        <div class="d-flex flex-column justify-content-between align-items-start">
-                            <h2 class="document-title">Ah Park Yo</h2>
-
-                            <span class="document-desc">Promoted to Front-End Developer</span>
+                @empty
+                    <div class="document-item">
+                        <div class="d-flex justify-content-start align-items-center">
+                            {{-- <img class="document-icon" src="./assets/img/home/history/photo.png" alt=""> --}}
+                            <div class="d-flex flex-column justify-content-between align-items-start">
+                                <h2 class="document-title">User 0</h2>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="document-item">
-                    <div class="d-flex justify-content-start align-items-center">
-                        {{-- <img class="document-icon" src="./assets/img/home/history/photo-2.png" alt=""> --}}
-
-                        <div class="d-flex flex-column justify-content-between align-items-start">
-                            <h2 class="document-title">Sintia Siny</h2>
-
-                            <span class="document-desc">Promoted to Accounting Executive</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="document-item">
-                    <div class="d-flex justify-content-start align-items-center">
-                        {{-- <img class="document-icon" src="./assets/img/home/history/photo-3.png" alt=""> --}}
-
-                        <div class="d-flex flex-column justify-content-between align-items-start">
-                            <h2 class="document-title">Jerami Putu</h2>
-
-                            <span class="document-desc">Promoted to Quality Manager</span>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
 
             </div>
         </div>
