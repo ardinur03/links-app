@@ -16,12 +16,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $data = [
-            'title' => 'Dashboard',
-            'users_count' => User::count(),
-            'links' => LinkUser::with('user')->count(),
-        ];
-        return view('admin.index', $data);
+        return view('admin.index');
     }
 
     /**
