@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\{AdminController, UserController, LinkUserController};
+use App\Http\Controllers\UserController as ControllersUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,4 +53,8 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index']);
     Route::resource('users', UserController::class);
     Route::resource('link-user', LinkUserController::class);
+});
+
+Route::controller('/', ControllersUserController::class)->group(function () {
+    Route::get('/dashboard', [ControllersUserController::class, 'index'])->name('user.dashboard');
 });
