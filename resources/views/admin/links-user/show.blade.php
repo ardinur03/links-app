@@ -12,12 +12,17 @@
         </div>
         <div class="card-body">
             <h5 class="card-title">{{ $linkUser['title'] }}</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia magni veritatis
-                delectus.</p>
+            <p class="card-text">{{ $linkUser['description'] }}</p>
             <a href="#" class="card-link">{{ $linkUser['link_name'] }}</a>
         </div>
         <div class="card-footer text-muted">
             Created by {{ $linkUser['user']['name'] }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-auto mt-5">
+            <a href="{{ route('link-user.index') }}" class="btn btn-outline-secondary">Back</a>
         </div>
     </div>
 </x-app-layout>
