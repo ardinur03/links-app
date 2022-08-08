@@ -169,6 +169,7 @@
                                 <span class="document-desc">{{ $user->name }}</span>
                             </div>
                         </div>
+                        <span class="document-date">{{ date('d M Y h:i:s a', strtotime($user->created_at)) }}</span>
                     </div>
                 @empty
                     <div class="document-item">
