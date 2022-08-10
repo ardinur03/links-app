@@ -17,7 +17,7 @@ class LinkUserController extends Controller
     {
         $data = [
             'title' => 'Link User',
-            'linksUser' => LinkUser::with('user')->get(),
+            'linksUser' => LinkUser::orderBy('created_at', 'desc')->with('user')->get(),
         ];
         return view('admin.links-user.index', $data);
     }
@@ -88,6 +88,9 @@ class LinkUserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $linkStatus = LinkUser::findOrFail($id);
+        $linkStatus->delete();
+
+        return redirect()->back();
     }
 }

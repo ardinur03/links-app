@@ -37,13 +37,20 @@
                                     <a href="{{ route('link-user.show', $linkUser->id) }}"
                                         class="btn btn-sm btn-secondary"><i class="bi bi-eye"></i></a>
                                     <a href="" class="btn btn-sm btn-info"><i class="bi bi-pencil-fill"></i></a>
-                                    <a href="" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
+                                    {{-- create delete form --}}
+                                    <form action="{{ route('link-user.destroy', $linkUser->id) }}" method="POST"
+                                        class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger"><i
+                                                class="bi bi-trash"></i></button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5">Data Not Found</td>
+                            <td colspan="5" class="text-center">Data Not Found</td>
                         </tr>
                     @endforelse
                 </tbody>
