@@ -50,12 +50,4 @@ class RouteServiceProvider extends ServiceProvider
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
     }
-
-    // protected function authenticated(Request $request, $user)
-    // {
-    //     if ($user->hasRole('admin')) {
-    //         return redirect(self::HOME_ADMIN);
-    //     }
-    //     return redirect(self::HOME);
-    // }
 }
