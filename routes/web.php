@@ -55,6 +55,6 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('link-user', LinkUserController::class);
 });
 
-Route::controller('/', ControllersUserController::class)->group(function () {
-    Route::get('/dashboard', [ControllersUserController::class, 'index'])->name('user.dashboard');
+Route::controller(ControllersUserController::class)->name('user.')->middleware(['auth', 'role:user'])->group(function () {
+    Route::get('/dashboard', 'index')->name('dashboard');
 });

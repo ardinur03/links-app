@@ -8,13 +8,6 @@ use App\Models\User;
 
 class Dashboard extends Component
 {
-
-    //    ta = [
-    //         'title' => 'Dashboard',
-    //         'users_count' => User::count(),
-    //         'links' => LinkUser::with('user')->count(),
-    //     ]; $da
-
     public $title = 'Dashboard';
     public $users_count = 0;
     public $links = 0;

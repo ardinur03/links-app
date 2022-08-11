@@ -1,3 +1,3 @@
-<x-app-layout title="Dashboard">
+<x-app-layout title="{{ $title }}">
     <livewire:admin.dashboard />
 </x-app-layout>
