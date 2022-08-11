@@ -77,7 +77,7 @@
     </div>
 
     <div class="mt-3 d-flex justify-content-between">
-        <button type="submit" class="btn btn-primary">Sign Up</button>
+        <button type="submit" class="btn btn-success">{{ $isCrud ? 'Add User' : 'Sign Up' }}</button>
         @if (!$isCrud)
             <a href="{{ route('login') }}">Already registred?</a>
         @endif
