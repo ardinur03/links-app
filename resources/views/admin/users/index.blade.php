@@ -1,4 +1,4 @@
-<x-app-layout title="Users">
+<x-app-layout title="{{ $title }}">
     <div class="row">
         <div class="col-12">
             <h2 class="content-title">Users</h2>
