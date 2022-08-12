@@ -1,3 +1,3 @@
 <x-app-layout title="User Dashboard" isUser="{{ $isUser }}">
-    <h1>ini dashboard user</h1>
+    <livewire:user.dashboard />
 </x-app-layout>
